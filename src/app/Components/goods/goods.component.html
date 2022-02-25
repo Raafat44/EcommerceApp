@@ -1,0 +1,31 @@
+<section class="container  mt-3">
+    <h1 class="text-center"> Add New Goods</h1>
+    <form #f="ngForm" (ngSubmit)="addnewGood(f)" class="form-control mt-5">
+        <input class="form-control mt-3" type="text" placeholder="Name" ngModel name="name" required>
+        <input class="form-control mt-3" type="number" placeholder="Price" ngModel name="price" required>
+        <input class="form-control mt-3" type="file" placeholder="Image"ngModel name="image" required #image>
+        <button class="btn btn-primary mt-3"  [disabled]="f.invalid">Submit</button>
+    </form>
+</section>
+<br>
+<section style="margin-bottom: 100px;">
+    <h1 class="text-center"> Modify Your Goods</h1>
+    <table class="text-center container mt-5">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Options</th>
+<!--             <th>Photo URL</th>
+ -->        </tr>    
+        <tr *ngFor="let good of goods; index as i">
+            <td><input #input1 type="text"  [(ngModel)]="good.name"></td>
+            <td><input #input2 type="number"  [(ngModel)]="good.price"></td>
+            <td><input #input3 type="file" ></td>
+<!--             <td>{{good.photoUrl}}</td>
+ -->        <td>
+                <button class="btn btn-primary" (click)="save(i,input1.value,input2.value,input3)">Save</button>
+                <button class="btn btn-danger" (click)="delete(i)">Delete</button>
+            </td>
+        </tr>        
+    </table>
+</section>

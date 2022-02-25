@@ -1,0 +1,12 @@
+input,button
+{
+    margin-top: 15px;
+}
+app-loading
+{
+    position: absolute;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}

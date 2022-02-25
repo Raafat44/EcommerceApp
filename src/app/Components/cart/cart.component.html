@@ -1,0 +1,22 @@
+<table class="text-center container mt-5">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Total</th>
+        <th>Options</th>
+    </tr>    
+    <tr *ngFor="let good of carts; index as i">
+        <td>{{good.name}}</td>
+        <td>{{good.price|currency}}</td>
+        <td>
+            <input #input type="number" placeholder="Amount" [(ngModel)]="good.amount==''? 0 :good.amount ">
+        </td>
+        <td>{{(good.price * good.amount) | currency}}</td>
+        <td>
+            <button class="btn btn-primary" (click)="save(i,input.value)">Save</button>
+            <button class="btn btn-danger" (click)="delete(i)">Delete</button>
+        </td>
+    </tr>
+    
+</table>

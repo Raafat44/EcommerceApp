@@ -1,0 +1,19 @@
+.sizing
+{
+    display: flex;
+    flex-wrap: wrap;
+    --bs-gutter-x:0;
+}
+.mainCard
+{
+    margin-top: 20px;
+}
+@media(max-width:570px)
+{
+    .sizing
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }      
+}

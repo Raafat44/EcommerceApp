@@ -1,0 +1,36 @@
+  <app-loading *ngIf="loading "></app-loading>
+
+<div >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" routerLink="">Welcome {{username}}</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item me-2">
+                <a class="nav-link" aria-current="page" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+              </li>              
+              <li class="nav-item me-2" *ngIf="isuser && !admin">
+                <a class="nav-link " aria-current="page" routerLink="/cart" routerLinkActive="active">My-Cart</a>
+              </li>              
+              <li class="nav-item me-2" *ngIf="admin">
+                <a class="nav-link " aria-current="page" routerLink="/admin" routerLinkActive="active">DashBoard</a>
+              </li>              
+              <li class="nav-item me-2" *ngIf="!isuser">
+                <a class="nav-link " aria-current="page" routerLink="/login" routerLinkActive="active">Login</a>
+              </li>              
+              <li class="nav-item me-2" *ngIf="!isuser">
+                <a class="nav-link " aria-current="page" routerLink="/signup" routerLinkActive="active">SignUp</a>
+              </li>              
+              <li class="nav-item me-2" *ngIf="isuser">
+               <button class="btn btn-danger" (click)="logout()">Logout</button>
+              </li>              
+            </ul>            
+          </div>
+        </div>
+      </nav>
+</div>
+
+<router-outlet></router-outlet>

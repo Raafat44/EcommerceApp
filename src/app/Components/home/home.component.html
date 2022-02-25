@@ -1,0 +1,16 @@
+<section class="mt-4 container">
+    <h1 class="text-center">Our Products</h1>
+    <div class="sizing" >
+        <div class="col-sm-6 col-lg-4 mainCard" *ngFor="let good of goods ; index as i">
+            <div class="card " style="width: 18rem; ">
+                <img [src]="good.photoUrl" class="card-img-top " style="height: 250px;" >
+                <div class="card-body">
+                  <h5 class="card-title">{{good.name | titlecase}}</h5>
+                  <p class="card-text">{{good.price | currency}}</p>
+                  <input [disabled]="validation()" #amount type="number" class="form-control mb-3" placeholder="Enter the amount" >
+                  <button [disabled]="validation()" class="btn btn-primary" (click)="addToCart(i,amount.value)">Add to cart</button>
+                </div>
+             </div>
+        </div>
+    </div>
+</section>
